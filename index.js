@@ -17,6 +17,10 @@ app.get("/" ,function(req,res){
     res.render("layout", data);
 });
 
+app.get("/home", function(req, res){
+    res.render("home", data);
+});
+
 app.use(function (req, res){
     res.status(404);
     // res.redirect("404");

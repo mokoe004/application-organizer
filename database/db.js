@@ -11,20 +11,8 @@ if (!fs.existsSync(dbFilePath)) {
 const db = new sqlite3.Database(dbFilePath);
 console.log("Connected to database");
 
-db.run("CREATE TABLE IF NOT EXISTS applications (id INTEGER PRIMARY KEY, company VARCHAR(60), description VARCHAR(100), status BOOLEAN, date VARCHAR(15))");
-db.close();
-db.run("INSERT INTO applications (company, description, status, date) VALUES (?, ?, ?, ?)", ["John Doe", "Pending", "true","23-23-2333" ]);
-
-db.all("SELECT * FROM applications", (selectErr, rows) => {
-  if (selectErr) {
-    console.error('Fehler beim Abrufen der Datensätze:', selectErr);
-  } else {
-    // Gib die abgerufenen Datensätze in der Konsole aus
-    rows.forEach(row => {
-      console.log(`ID: ${row.id}, Company: ${row.company}, Description: ${row.description}, Status: ${row.status}, Date: ${row.date}`);
-    });
-  }
-});
+db.run("CREATE TABLE IF NOT EXISTS applications (id INTEGER PRIMARY KEY, company VARCHAR(60), description VARCHAR(100), email VARCHAR(25), status BOOLEAN, date VARCHAR(15))");
+// db.run("INSERT INTO applications (company, description, email, status, date) VALUES (?, ?, ?, ?, ?)", ["John Doe", "Pending","oasijf@gmail.com", "open","23-23-2333" ]);
 
 db.close();
 console.log("Db connection closed");
