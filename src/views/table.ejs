@@ -38,7 +38,7 @@
     </div>
     <!-- Table with applications and status -->
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs font-light text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="p-4">
                     <div class="flex items-center">
@@ -79,24 +79,24 @@
                     </td>
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <div class="pl-3">
-                            <div class="text-base font-semibold"><%= elem.company %></div>
-                            <div class="font-normal text-gray-500"><%= elem.email %></div>
+                            <div class="text-base font-intersemibold"><%= elem.company %></div>
+                            <div class="font-light text-gray-500"><%= elem.email %></div>
                         </div>  
                     </th>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 font-light">
                         <%= elem.description %>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 font-light">
                         <%= elem.created_at %>
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex items-center">
                             <% if(elem.status === "confirm"){ %>
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Confirmed
+                            <div class="h-2.5 w-2.5 rounded-full font-light bg-green-500 mr-2"></div> Confirmed
                             <% }else if(elem.status === "rejected"){ %>
-                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Rejected
+                            <div class="h-2.5 w-2.5 rounded-full font-light bg-red-500 mr-2"></div> Rejected
                             <% }else{ %>
-                            <div class="h-2.5 w-2.5 rounded-full bg-orange-400 mr-2"></div> Open
+                            <div class="h-2.5 w-2.5 rounded-full font-light bg-orange-400 mr-2"></div> Open
                             <% }; %>
                         </div>
                     </td>

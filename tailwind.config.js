@@ -4,6 +4,16 @@ module.exports = {
     "./src/views/**/*.{html,js,ejs}",
   ],
   theme: {
+    fontFamily: {
+      khand:"Khand",
+      semibold: "Khand-SemiBold",
+      bold: "Khand-Bold",
+      medium: "Inter-Medium",
+      light: "Inter-Light",
+      extralight: "Inter-ExtraLight",
+      interbold: "Inter-Bold",
+      intersemibold: "Inter-SemiBold",
+    },
     // colors: {
     //   gray: {
     //     100 : "#f6f8fa",

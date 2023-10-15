@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "build-css": "npx tailwindcss -i ./src/public/styles.css -o ./src/public/output.css --watch"
+    "build-css": "npx tailwindcss -i ./src/public/css/styles.css -o ./src/public/css/output.css --watch"
   },
   "nodemonConfig": {
     "watch": ["index.js","src", "database"], 
