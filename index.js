@@ -24,6 +24,15 @@ app.get("/list", function(req, res){
     res.render("list", data);
 });
 
+app.get("/forms", function(req, res){
+    res.render("forms", data);
+});
+
+app.post("/forms", function(req, res){
+    data.addApplication(req.body);
+    res.render("forms", data);
+});
+
 app.use(function (req, res){
     res.status(404);
     res.render("404");

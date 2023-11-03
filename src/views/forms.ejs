@@ -1,0 +1,124 @@
+<%- include("./layout/head") %>
+<main class="m-8">
+  <section class="relative overflow-x-auto w-fit mx-auto shadow-md sm:rounded-lg">
+    <form id="formC" action="/forms" method="post">
+    <div
+      class="grid grid-cols-2 grid-rows-5 p-4 bg-white dark:bg-gray-900"
+    >
+      <!-- Inputs -->
+      <div class="flex-col items-center justify-start gap-10 row-span-4">
+        <label
+          for="company-input"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Company Name
+          <input
+            type="text"
+            id="company-input"
+            name="company"
+            placeholder="Microsoft"
+            class="labels bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </label>
+
+        <label
+          for="description-input"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Job description
+          <input
+            type="text"
+            id="description-input"
+            name="description"
+            placeholder="Senior Software Developer"
+            class="labels bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </label>
+
+        <label
+          for="email-input"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Company Email
+          <input
+            type="text"
+            id="email-input"
+            name="email"
+            placeholder="max.mustermann@gmail.com"
+            class="labels bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </label>
+        <!-- Status buttons -->
+        <fieldset
+          class="inline-flex rounded-lg mt-8 border border-gray-100 bg-gray-100 p-1"
+        >
+          <legend class="sr-only">Status</legend>
+
+          <% status.forEach(elem => { %>
+          <div>
+            <input
+              type="radio"
+              name="status"
+              value=<%= elem.name %>
+              id=<%= elem.name %>
+              class="peer hidden radioButtons"
+              checked
+            />
+
+            <label
+              for=<%= elem.name %>
+              class="flex cursor-pointer items-center justify-center peer rounded-md hover:bg-white px-3 py-2 text-gray-700 hover:text-gray-900 hover:border hover:border-gray-200 peer-checked:text-blue-500"
+            >
+              <div
+                class="h-2.5 w-2.5 rounded-full font-light bg-gray-500 group-checked:bg-<%=elem.color%> peer-hover:bg-<%=elem.color%> mr-2"
+              ></div>
+              <p class="text-sm font-medium"><%=elem.name%></p>
+            </label>
+          </div>
+          <% }) %>
+        </fieldset>
+      </div>
+
+      <!-- Datepicker -->
+      <label class="block mb-2 text-sm font-medium mx-12 row-span-4 text-gray-900 dark:text-white">Application Date
+        <div class="relative max-w-sm">
+          <div
+            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+          >
+            <svg
+              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+              />
+            </svg>
+          </div>
+          <input
+            datepicker
+            datepicker-buttons
+            type="text"
+            name="date"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Select date"
+          />
+        </div>
+      </label>
+      <!-- Submit Button -->
+      <div class="flex-row items-center col-span-2 text-center mt-10">
+        <button type="button" onclick="handleSubmitBtn()" class="group [transform:translateZ(0)] w-fit h-fit mt-3 px-6 py-3 rounded-lg bg-gray-200 dark:bg-gray-600 overflow-hidden relative before:absolute before:bg-sky-600 before:bottom-0 before:left-0 before:h-full before:w-full before:-translate-x-full hover:before:translate-x-0 before:transition before:ease-in-out before:duration-500">
+        <p class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500">Save</p>
+        </button>
+      </button>
+      <button type="reset" class="group [transform:translateZ(0)] w-fit h-fit mt-3 px-6 py-3 rounded-lg bg-gray-200 dark:bg-gray-600 overflow-hidden relative before:absolute before:bg-sky-600 before:bottom-0 before:left-0 before:h-full before:w-full before:-translate-x-full hover:before:translate-x-0 before:transition before:ease-in-out before:duration-500">
+        <p class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500">Delete</p>
+      </button>
+      </div>
+      
+    </div>
+  </form>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+  <script src="forms.js"></script>
+</main>
+<%- include("./layout/foot") %>
