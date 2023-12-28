@@ -26,5 +26,6 @@ npm start
 
 ## Screenshots
 
-<img width="801" heigth="916" alt="Screenshot1" src="./public/Screenshot1.png">
-<img width="801" heigth="916" alt="Screenshot2" src="./public/Screenshot2.png">
+<img width="1200" heigth="600" alt="Screenshot1" src="./src/public/img/screenshot1.png">
+<img width="1200" heigth="600" alt="Screenshot2" src="./src/public/img/screenshot2.png">
+<img width="1200" heigth="600" alt="Screenshot3" src="./src/public/img/screenshot3.png">
