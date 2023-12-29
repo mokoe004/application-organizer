@@ -8,6 +8,7 @@ This is an application organizer to keep track of your applications.
 1. Node.js
 2. Express
 3. Tailwind CSS
+4. SQLite
 
 ## Installation
 
